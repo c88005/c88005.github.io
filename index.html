@@ -1,37 +1,20 @@
 <!DOCTYPE html>
 
-<script type="text/javascript"> 
-	var myAudio = new Audio;
-	function uav() {	
-		myAudio.src = "sounds/uav.ogg";  
-		myAudio.play();  
-	};
-	function fck() {	
-		myAudio.src = "sounds/fuck.ogg";  
-		myAudio.play();  
-	};
-	function nah() {	
-		myAudio.src = "sounds/nah.mp3";  
-		myAudio.play();  
-	};
-</script>  
 
 <html>
 	<head>
 		<meta charset="UTF-8">
 		<title>c</title>
-		<link rel="stylesheet" href="cssindex.css">
+		<link rel="stylesheet" href="not main.css">
 		<link rel="icon" href="icon.ico" type="image/x-icon">
 	</head>
 	<body>
 		<!--this code sucks ass-->
 		<br><br> 
-		<h1 style="text-align: center;" onclick="uav();">
-			sdfghjkl;
-		</h1>
+		<h1 style="text-align: center;" onclick="uav();" id="text"></h1>
 		<ul>
 			<li>
-				<a href="https://github.com/c88005" onclick="nah()");" target="_blank">
+				<a href="https://github.com/c88005" onclick="github()");" target="_blank">
 					github profile
 				</a>
 			</li>
@@ -41,6 +24,56 @@
 					test page 01
 				</a>
 			</li>
+			<br>
+			<li>
+				<a href="https://c88005.itch.io/" onclick="nah()");" target="_blank">
+					my itch.io page
+				</a>
+			</li>
 		</ul>
+		<script type="text/javascript"> 
+			var myAudio = new Audio;
+			var counter = 1;
+			var unlcok = false;
+			var text = "sdfghjkl;";
+			
+			function textswap(t) {
+				text = t;
+				document.getElementById("text").innerHTML = text;
+			}
+			textswap("sdfghjkl;");
+			
+			function uav() {	
+				myAudio.src = "sounds/uav.ogg";
+				if (counter == 10) {
+					textswap("one step closer");
+					//mb this whole easter egg is not implemented yet 
+				}
+				counter += 1;
+				myAudio.play();  
+			};
+			function fck() {	
+				myAudio.src = "sounds/fuck.ogg";  
+				myAudio.play();  
+			};
+			function nah() {	
+				myAudio.src = "sounds/nah.mp3";  
+				myAudio.play();  
+			};
+			function github() {	
+				
+				if (!unlcok & counter >= 10) {
+					textswap("sdfghjkl;");
+					myAudio.src = "secret.ogg";  
+					myAudio.play();
+					unlcok = true;
+				}
+				else {
+					myAudio.src = "sounds/nah.mp3";
+					myAudio.play();
+				}
+			};
+		</script>  
+
 	</body>
 </html>
